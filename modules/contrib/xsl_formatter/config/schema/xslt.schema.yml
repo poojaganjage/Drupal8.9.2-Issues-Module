@@ -1,0 +1,13 @@
+xsl_formatter.xslt.*:
+  type: config_entity
+  label: 'XSLT config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    xsl:
+      type: string_long
+      label: 'XSL'

@@ -1,0 +1,33 @@
+{
+    "name": "drupal/xsl_formatter",
+    "description": "Renders the content of a text field, link field or file by passing it through an XSL transformation first.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "keywords": [
+        "Drupal",
+        "XML",
+        "XSL",
+        "Transformation"
+    ],
+    "homepage": "https://www.drupal.org/project/xsl_formatter",
+    "authors": [
+        {
+            "name": "Johannes Kowald (JoCowood)",
+            "homepage": "https://www.drupal.org/u/JoCowood",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Dan Morrison (dman)",
+            "homepage": "https://www.drupal.org/u/dman",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "ext-xml": "*"
+    },
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/xsl_formatter",
+        "source": "https://git.drupal.org/project/xsl_formatter.git"
+    }
+}

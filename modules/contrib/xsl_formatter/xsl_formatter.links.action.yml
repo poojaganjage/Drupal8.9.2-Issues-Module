@@ -1,0 +1,5 @@
+xsl_formatter.xslt.add_form:
+  route_name: 'entity.xslt.add_form'
+  title: 'Add XSLT'
+  appears_on:
+    - entity.xslt.collection

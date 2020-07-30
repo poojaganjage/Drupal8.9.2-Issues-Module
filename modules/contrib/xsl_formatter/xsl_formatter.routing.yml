@@ -1,0 +1,31 @@
+entity.xslt.collection:
+  path: '/admin/structure/xsl_formatter/xslt'
+  defaults:
+    _entity_list: 'xslt'
+    _title: 'XSLT Templates'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.xslt.add_form:
+  path: '/admin/structure/xsl_formatter/xslt/add'
+  defaults:
+    _entity_form: 'xslt.add'
+    _title: 'Add XSLT Template'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.xslt.edit_form:
+  path: '/admin/structure/xsl_formatter/xslt/{xslt}'
+  defaults:
+    _entity_form: 'xslt.edit'
+    _title: 'Edit XSLT Template'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.xslt.delete_form:
+  path: '/admin/structure/xsl_formatter/xslt/{xslt}/delete'
+  defaults:
+    _entity_form: 'xslt.delete'
+    _title: 'Delete XSLT Template'
+  requirements:
+    _permission: 'administer site configuration'

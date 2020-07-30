@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * The xsl formatter module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_theme().
+ *
+ * Advertises our theme function.
+ */
+function xsl_formatter_theme() {
+  return [
+    'xsl_formatter' => [
+      'variables' => [
+        'item' => NULL,
+        'settings' => NULL,
+        'result' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_help().
+ */
+function xsl_formatter_help($route_name, RouteMatchInterface $route_match) {
+  $output = '';
+  switch ($route_name) {
+    // Main module help for the paragraphs module.
+    case 'help.page.xsl_formatter':
+      $moduleHandler = \Drupal::service('module_handler');
+
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The XSL Formatter module provides a field formatter that runs given XML content through a defined XSL stylesheet before rendering') . '</p>';
+
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<h4>' . t('Short explanation') . '</h4>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('Construct a content type, e.g. "Updates".') . '</li>';
+      $output .= '<li>' . t("Attach a field (e.g. 'Text (plain, long)') to that content type to hold the XML data.") . '</li>';
+      $output .= '<li>' . t('Create a XSLT configuration entity which contains the XSL data.') . '</li>';
+      $output .= '<li>' . t('Edit the display settings to choose XSLT that transforms the XML into something readable.') . '</li>';
+      $output .= '</ol>';
+      $output .= '<h4>' . t('Detail explanation') . '</h4>';
+      $output .= '<ol>';
+      $output .= '<li>' . t('Enable the XSL formatter module. This provides a new \'Format\' called "<strong>Transformed by XSL</strong>" that can be applied to <strong>Text (plain, long)</strong>, <strong>File</strong> and <strong>Link</strong> field types.') . '</li>';
+      $output .= '<li>' . t('Create a XSLT template by navigating to <em>Home » Administration » Structure » XSLT Templates</em> and selecting the <em>Add XSLT</em> button. Choose a file or paste the XSL string content to the text field. Caution: A file will overwrite the content of the text field!') . '</li>';
+      $output .= '<li>' . t('Create or edit your chosen content type. (<em>Home » Administration » Structure » Content types</em>) to add your field.') . '</li>';
+      $output .= '<li>' . t('Go to "<strong>Manage Display</strong>" of your content type, and select "<strong>Transformed by XSL</strong>" as the format. In the display settings, choose a XSLT template.') . '</li>';
+      $output .= '<li>' . t('It\'s recommended to start by choosing one of the "<em>verbatim</em>" or "<em>pretty-print</em>" XSLT entries that comes with the project before adding your own. This will demonstrate how the base system works before introducing the complexity of XSL debugging.') . '</li>';
+      $output .= '</ol>';
+
+      $output .= '<h3>' . t('Troubleshooting') . '</h3>';
+      $output .= '<p>' . t("XML and XSL are very picky syntaxes, and it's easy for things to go wrong. Debugging info should be available in the Watchdog logs, with explanations of errors found during parsing.") . '</p>';
+      $output .= '<p>' . t('Using the remote URL source for your data can be problematic. A network request to the original is made on each pageload, and if the target is slow or offline, your page will be also!') . '<br/>';
+      $output .= t('The module uses the <a href="http://php.net/manual/en/domdocument.load.php">DOMDocument::load</a> function directly, so all issues related to that apply. No additional headers, proxy configs or authentication are supported here.') . '</p>';
+      $output .= '<p>' . t('As this request happens in realtime (on render request) it can be terribly inefficient if you display this field in a list of views or anything.') . '<br/>';
+      $output .= t('Drupal-level caching *may* help somewhat, but for performance you are probably better to switch to using <a href="https://www.drupal.org/project/feeds">Feeds module</a> (plus <a href="https://www.drupal.org/project/feeds_xpathparser">Feeds XPath Parser</a>) to do your XML importing instead.') . '<p>';
+
+      break;
+
+  }
+  return $output;
+}

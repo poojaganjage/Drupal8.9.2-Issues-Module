@@ -1,0 +1,5 @@
+xsl_formatter.xslt.collection:
+  title: 'XSLT Templates'
+  parent: system.admin_structure
+  description: 'List of XSLT'
+  route_name: entity.xslt.collection

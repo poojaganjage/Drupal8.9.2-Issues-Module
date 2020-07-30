@@ -1,0 +1,10 @@
+name: 'XSL formatter'
+description: 'Renders the content of a text field, link field or file by passing it through an XSL transformation first.'
+package: XML
+type: module
+core_version_requirement: '^8.8 || ^9'
+
+# Information added by Drupal.org packaging script on 2020-07-21
+version: '8.x-1.0-alpha1+5-dev'
+project: 'xsl_formatter'
+datestamp: 1595335575
