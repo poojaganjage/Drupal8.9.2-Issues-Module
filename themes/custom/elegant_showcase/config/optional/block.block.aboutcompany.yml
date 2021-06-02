@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:85c50c0e-5461-4400-94a1-c8bd4a7920de'
+  module:
+    - block_content
+  theme:
+    - elegant_showcase
+id: aboutcompany
+theme: elegant_showcase
+region: footer_one
+weight: 0
+provider: null
+plugin: 'block_content:85c50c0e-5461-4400-94a1-c8bd4a7920de'
+settings:
+  id: 'block_content:85c50c0e-5461-4400-94a1-c8bd4a7920de'
+  label: 'About Company'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,21 @@
+multipurpose_lite.screen-md-max:
+  label: screen-xs-max
+  mediaQuery: 'all and (max-width: 768px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+multipurpose_lite.screen-tab-max:
+  label: screen-sm-min
+  mediaQuery: 'all and (max-width: 600)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+multipurpose_lite.screen-sm-max:
+  label: screen-sm-min
+  mediaQuery: 'all and (max-width: 420)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x

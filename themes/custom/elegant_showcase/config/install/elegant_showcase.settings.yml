@@ -1,0 +1,55 @@
+# Default settings are not located here. Theme settings in general are handled
+# strictly by this base theme via the @BootstrapSetting annotation discovery
+# process. This is to help sub-theme's inherit its settings properly and
+# determine when a setting should be saved to config as "overridden".
+#
+# @see \Drupal\bootstrap\Plugin\SettingBase
+# @see \Drupal\bootstrap\Plugin\SettingInterface
+# @see \Drupal\bootstrap\Plugin\SettingManager
+# @see \Drupal\bootstrap\Plugin\Form\SystemThemeSettings
+
+# Default features.
+features:
+   favicon: true
+   logo: true
+   name: true
+   node_user_picture: true
+   slogan: true
+header_contact: '+1 501-222-9134'
+header_email:   'info@example.com'
+header_social_facebook: 'https://www.facebook.com/'
+header_social_twitter:  'https://twitter.com/'
+header_social_linkedin: 'http://www.linkedin.com/'
+header_social_youtube:  'https://youtube.com/'
+
+banner_checkbox: true
+banner_one_title:   'Banner One Titile Here'
+banner_one_description: 'Banner one short description'
+banner_two_title:   'Banner Two Title Here'
+banner_two_description: 'Banner two short description'
+
+content: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+
+block_section_title: 'What We Do'
+block_one_title:  'Block One Title'
+block_one_description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s'
+block_two_title:    'Block Two Title'
+block_two_description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s'
+block_three_title:  'Block Three Title'
+block_three_description:  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s,'
+
+feature_section_title:  'Block Title here'
+feature_section_description:  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+
+testimonial_section_title: 'Testimonials'
+first_testimonial_name: 'Lorem Ipsum'
+first_testimonial_description:  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+second_testimonial_name:  'Lorem Ipsum is'
+second_testimonial_description:  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+third_testimonial_name:  'Lorem Ipsum is'
+third_testimonial_description:  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+
+footer_facebook: 'https://www.facebook.com/'
+footer_linkedin: 'http://www.linkedin.com/'
+footer_twitter: 'https://twitter.com/'
+footer_youtube: 'https://youtube.com/'
