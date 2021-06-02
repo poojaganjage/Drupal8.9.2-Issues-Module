@@ -1,0 +1,6 @@
+name: Import excel
+type: module
+description: Import excel module.
+package: ImportData
+version: 1.0
+core: 8.x

@@ -1,0 +1,7 @@
+importexcel.import_excel:
+  path: '/admin/structure/importdata/sheet/import'
+  defaults:
+    _title: 'Upload sheet'
+    _form: '\Drupal\importdata\Form\ImportexcelForm'
+  requirements:
+    _permission: 'Import form'
