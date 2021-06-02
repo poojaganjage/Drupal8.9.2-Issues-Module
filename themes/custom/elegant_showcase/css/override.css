@@ -1,0 +1,124 @@
+/*Media Query*/
+
+@media (max-width : 1024px) {
+  .hero-slide .carousel-caption h1 {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
+  .hero-slide .carousel-caption .lead {
+    font-size: 16px;
+  }
+
+  .hero-slide .carousel-caption .btn {
+    font-size: 12px;
+  }
+
+  .hero-slide .carousel-caption .phone {
+    font-size: 18px;
+  }
+  .hero-slide .carousel-caption small {
+    font-size: 11px;
+  }
+
+  .hero-slide .carousel-caption {
+    padding: 40px 0;
+  }
+}
+
+
+@media (max-width : 768px) {
+  body {
+    border: 2px solid red;
+  }
+  .navbar-nav {
+    margin: unset !important;
+  }
+  .hero-slide .fa-angle-left {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    font-size: 36px;
+  }
+  .hero-slide .fa-angle-right {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    font-size: 36px;
+  }
+  .hero-slide .carousel-caption h1 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .hero-slide .carousel-caption .lead {
+    font-size: 14px;
+  }
+
+  .hero-slide .carousel-caption .phone {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .hero-slide .carousel-caption small {
+    font-size: 10px;
+  }
+
+  .hero-slide .carousel-caption .btn {
+    font-size: 12px;
+  }
+  .footer-widget-section {
+    text-align: center;
+  }
+  .feature-section h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width : 600px) {
+  .carousel-indicators {
+    display: none;
+  }
+  body {
+    border: 1px solid blue;
+  }
+  /*    .header-email {
+          text-align: center;
+  }*/
+
+  .hero-slide .carousel-caption {
+    width: 100%;
+    padding: 30px;
+    left: 0;
+  }
+
+  .hero-slide .carousel-caption .lead {
+    margin-bottom: 10px;
+  }
+
+  .hero-slide .carousel-caption .btn {
+    font-size: 10px;
+    padding: 5px 10px;
+    border-width: 1px;
+  }
+}
+
+@media (max-width : 420px) {
+  .hero-slide {
+    display: none;
+  }
+  body {
+    border: 1px solid green;
+  }
+  .header-email {
+    text-align: center;
+    width: 100%;
+  }
+  .header-social-links {
+    text-align: center;
+    width: 100%;
+  }
+  .social-links {
+    float: unset !important;
+  }
+}

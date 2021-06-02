@@ -1,0 +1,207 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Elegant showcase theme.
+ */
+
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements hook_preprocess_HOOK() for Page templates.
+ *
+ * Override or insert variables into the page template.
+ */
+function elegant_showcase_preprocess_page(&$variables) {
+
+  $variables['base_url'] = $GLOBALS['base_url'];
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['header_contact'] = theme_get_setting('header_contact');
+  $variables['header_email'] = theme_get_setting('header_email');
+  $variables['header_social_facebook'] = theme_get_setting('header_social_facebook');
+  $variables['header_social_twitter'] = theme_get_setting('header_social_twitter');
+  $variables['header_social_linkedin'] = theme_get_setting('header_social_linkedin');
+  $variables['header_social_youtube'] = theme_get_setting('header_social_youtube');
+  $variables['banner_checkbox'] = theme_get_setting('banner_checkbox');
+
+  $fid = theme_get_setting("banner_one", "elegant_showcase");
+
+  if (!empty($fid)) {
+    $fid = reset($fid);
+    $style = ImageStyle::load('banner_style');
+    $file = File::load($fid);
+    $image_uri = $file->getFileUri();
+    $destination = $style->buildUri($image_uri);
+    if (!file_exists($destination)) {
+      $style->createDerivative($image_uri, $destination);
+    }
+    $bannerpath = file_url_transform_relative($style->buildUrl($image_uri));
+    $variables['banner_one'] = $bannerpath;
+  }
+  else {
+    $variables['banner_one'] = drupal_get_path('theme', 'elegant_showcase') . '/images/slider/slide-1.jpg';
+  }
+  $bannerCheckbox = $variables['banner_checkbox'];
+
+  if ($bannerCheckbox) {
+    $variables['banner_one_title'] = theme_get_setting('banner_one_title');
+    $variables['banner_one_description'] = theme_get_setting('banner_one_description');
+    $variables['banner_one_linkLabel'] = theme_get_setting('banner_one_linkLabel');
+  }
+  $variables['banner_one_link'] = theme_get_setting('banner_one_link');
+
+  // Banner 2.
+  $fid = theme_get_setting("banner_two", "elegant_showcase");
+
+  if (!empty($fid)) {
+    $fid = reset($fid);
+    $style = ImageStyle::load('banner_style');
+    $file = File::load($fid);
+    $image_uri = $file->getFileUri();
+    $destination = $style->buildUri($image_uri);
+    if (!file_exists($destination)) {
+      $style->createDerivative($image_uri, $destination);
+    }
+    $bannerpath = file_url_transform_relative($style->buildUrl($image_uri));
+    $variables['banner_two'] = $bannerpath;
+  }
+  else {
+    $variables['banner_two'] = drupal_get_path('theme', 'elegant_showcase') . '/images/slider/slide-2.jpg';
+  }
+
+  if ($bannerCheckbox) {
+    $variables['banner_two_title'] = theme_get_setting('banner_two_title');
+    $variables['banner_two_description'] = theme_get_setting('banner_two_description');
+    $variables['banner_two_linkLabel'] = !empty(theme_get_setting('banner_two_linkLabel')) ? theme_get_setting('banner_two_linkLabel') : 'Working with us';
+    $variables['banner_two_link'] = theme_get_setting('banner_two_link');
+  }
+
+  $variables['block_section_title'] = theme_get_setting('block_section_title');
+  $fid = theme_get_setting("block_one_image", "elegant_showcase");
+  if (!empty($fid)) {
+    $file = File::load($fid[0]);
+    $uri = $file->getFileUri();
+    $variables['block_one_image'] = file_create_url($uri);
+  }
+  else {
+    $variables['block_one_image'] = drupal_get_path('theme', 'elegant_showcase') . '/images/mobile-phone.jpg';
+  }
+
+  $variables['block_one_title'] = theme_get_setting('block_one_title');
+  $description1 = theme_get_setting('block_one_description');
+  // Strip tags to avoid breaking any html.
+  $string = strip_tags($description1);
+  if (strlen($string) > 250) {
+    $description1 = substr($string, 0, 250);
+    $variables['sort_desc_one'] = $description1 . '...';
+    $variables['block_one_link'] = theme_get_setting('block_one_link');
+  }
+  else {
+    $variables['block_one_description'] = theme_get_setting('block_one_description');
+  }
+
+  // Block Two.
+  $fid = theme_get_setting("block_two_image", "elegant_showcase");
+  if (!empty($fid)) {
+    $file = File::load($fid[0]);
+    $uri = $file->getFileUri();
+
+    $variables['block_two_image'] = file_create_url($uri);
+  }
+  else {
+    $variables['block_two_image'] = drupal_get_path('theme', 'elegant_showcase') . '/images/seo.jpg';
+  }
+  $variables['block_two_title'] = theme_get_setting('block_two_title');
+
+  $description2 = theme_get_setting('block_two_description');
+  // Strip tags to avoid breaking any html.
+  $string = strip_tags($description2);
+  if (strlen($string) > 250) {
+    $description2 = substr($string, 0, 250);
+    $variables['sort_desc_two'] = $description2 . '...';
+    $variables['block_two_link'] = theme_get_setting('block_two_link');
+  }
+  else {
+    $variables['block_two_description'] = theme_get_setting('block_two_description');
+  }
+
+  // Block Three.
+  $fid = theme_get_setting("block_three_image", "elegant_showcase");
+  if (!empty($fid)) {
+    $file = File::load($fid[0]);
+    $uri = $file->getFileUri();
+
+    $variables['block_three_image'] = file_create_url($uri);
+  }
+  else {
+    $variables['block_three_image'] = drupal_get_path('theme', 'elegant_showcase') . '/images/computer.jpg';
+  }
+  $variables['block_three_title'] = theme_get_setting('block_three_title');
+
+  $description3 = theme_get_setting('block_three_description');
+  // Strip tags to avoid breaking any html.
+  $string = strip_tags($description3);
+  if (strlen($string) > 250) {
+    $description3 = substr($string, 0, 250);
+    $variables['sort_desc_three'] = $description3 . '...';
+    $variables['block_three_link'] = theme_get_setting('block_three_link');
+  }
+  else {
+    $variables['block_three_description'] = theme_get_setting('block_three_description');
+  }
+
+  // Feature section.
+  $variables['feature_section_title'] = theme_get_setting('feature_section_title');
+  $variables['feature_section_description'] = theme_get_setting('feature_section_description');
+
+  // Testimonial section.
+  $variables['testimonial_section_title'] = theme_get_setting('testimonial_section_title');
+  $fid = theme_get_setting("first_testimonial_image", "elegant_showcase");
+  if (!empty($fid)) {
+    $file = File::load($fid[0]);
+    $uri = $file->getFileUri();
+    $variables['first_testimonial_image'] = file_create_url($uri);
+  }
+  else {
+    $variables['first_testimonial_image'] = drupal_get_path('theme', 'elegant_showcase') . '/images/default_profile.png';
+  }
+
+  $variables['first_testimonial_name'] = theme_get_setting('first_testimonial_name');
+  $variables['first_testimonial_description'] = theme_get_setting('first_testimonial_description');
+
+  // Second Testimonial.
+  $fid = theme_get_setting("second_testimonial_image", "elegant_showcase");
+  if (!empty($fid)) {
+    $file = File::load($fid[0]);
+    $uri = $file->getFileUri();
+
+    $variables['second_testimonial_image'] = file_create_url($uri);
+  }
+  else {
+    $variables['second_testimonial_image'] = drupal_get_path('theme', 'elegant_showcase') . '/images/default_profile.png';
+  }
+  $variables['second_testimonial_name'] = theme_get_setting('second_testimonial_name');
+  $variables['second_testimonial_description'] = theme_get_setting('second_testimonial_description');
+
+  // Third Testimonial.
+  $fid = theme_get_setting("third_testimonial_image", "elegant_showcase");
+  if (!empty($fid)) {
+    $file = File::load($fid[0]);
+    $uri = $file->getFileUri();
+
+    $variables['third_testimonial_image'] = file_create_url($uri);
+  }
+  else {
+    $variables['third_testimonial_image'] = drupal_get_path('theme', 'elegant_showcase') . '/images/default_profile.png';
+  }
+  $variables['third_testimonial_name'] = theme_get_setting('third_testimonial_name');
+  $variables['third_testimonial_description'] = theme_get_setting('third_testimonial_description');
+
+  // Social Icon seetings.
+  $variables['footer_facebook'] = theme_get_setting('footer_facebook');
+  $variables['footer_linkedin'] = theme_get_setting('footer_linkedin');
+  $variables['footer_twitter'] = theme_get_setting('footer_twitter');
+  $variables['footer_youtube'] = theme_get_setting('footer_youtube');
+
+}

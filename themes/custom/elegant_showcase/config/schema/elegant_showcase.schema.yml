@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Elegant Showcase theme.
+
+elegant_showcase.settings:
+  type: theme_settings
+  label: 'Elegant Showcase settings'

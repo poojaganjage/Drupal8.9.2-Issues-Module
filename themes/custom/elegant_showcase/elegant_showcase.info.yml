@@ -1,0 +1,31 @@
+name: Elegant Showcase Theme
+type: theme
+base theme: bootstrap
+description: A flexible Simple, Drupal 8 theme with many regions and theme settings.
+package: 'Bootstrap'
+core: 8.x
+dependencies:
+    - drupal:bootstrap
+
+
+#Regions
+regions:
+        header: 'Header'
+        main_navigation: 'Main Navigation'
+        slideshow: 'Slideshow'      
+        content: 'Content'
+        sidebar_first: 'Sidebar first'
+        sidebar_second: 'Sidebar second'
+        featured: 'Featured'
+        footer: 'Footer'
+        footer_one:     'Footer One'
+        footer_two:     'Footer two'
+        footer_three:   'Footer Three'
+        
+libraries:
+  - 'elegant_showcase/global-styling'
+
+# Information added by Drupal.org packaging script on 2020-07-17
+version: '8.x-1.1+26-dev'
+project: 'elegant_showcase'
+datestamp: 1595003264

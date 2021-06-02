@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: banner_style
+label: 'Banner style'
+effects:
+  53704897-7b35-412c-8342-995a5237539a:
+    uuid: 53704897-7b35-412c-8342-995a5237539a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1366
+      height: 650
+      anchor: center-center

@@ -1,0 +1,16 @@
+diff --git a/css/style.css b/css/style.css
+index 750ba99..cb9f0ab 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -501,6 +501,11 @@ hr {
+   border-radius: 20px;
+   color: snow;
+   margin: 5px;
++  width: 35px;
++  height: 35px;
++}
++.footer-widget .fa-facebook {
++  padding-left: 12px;
+ }
+ 
+ .copyright-info {
