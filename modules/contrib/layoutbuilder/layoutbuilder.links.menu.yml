@@ -1,0 +1,6 @@
+layoutbuilder.admin_settings:
+  title: 'Layout Builder Dsiplay'
+  description: 'Control the display of Layout Builder Form'
+  route_name: layoutbuilder.admin_settings
+  parent: system.admin_config_content
+  weight: 10

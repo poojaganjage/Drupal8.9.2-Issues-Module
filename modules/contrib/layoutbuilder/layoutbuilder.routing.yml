@@ -1,0 +1,155 @@
+layoutbuilder.choose_section:
+  path: '/layoutbuilder/choose/section/{section_storage_type}/{section_storage}/{delta}'
+  defaults:
+   _controller: '\Drupal\layoutbuilder\Controller\ChooseSectionController::build'
+   _title: 'Choose a layout for this section'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.add_section:
+  path: '/layoutbuilder/add/section/{section_storage_type}/{section_storage}/{delta}/{plugin_id}'
+  defaults:
+    _controller: '\Drupal\layoutbuilder\Controller\AddSectionController::build'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.configure_section:
+  path: '/layoutbuilder/configure/section/{section_storage_type}/{section_storage}/{delta}/{plugin_id}'
+  defaults:
+    _title: 'Configure section'
+    _form: '\Drupal\layoutbuilder\Form\ConfigureSectionForm'
+    # Adding a new section requires a plugin_id, while configuring an existing
+    # section does not.
+    plugin_id: null
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.remove_section:
+  path: '/layoutbuilder/remove/section/{section_storage_type}/{section_storage}/{delta}'
+  defaults:
+    _form: '\Drupal\layoutbuilder\Form\RemoveSectionForm'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.choose_block:
+  path: '/layoutbuilder/choose/block/{section_storage_type}/{section_storage}/{delta}/{region}'
+  defaults:
+    _controller: '\Drupal\layoutbuilder\Controller\ChooseBlockController::build'
+    _title: 'Choose a block'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.add_block:
+  path: '/layoutbuilder/add/block/{section_storage_type}/{section_storage}/{delta}/{region}/{plugin_id}'
+  defaults:
+    _form: '\Drupal\layoutbuilder\Form\AddBlockForm'
+    _title: 'Configure block'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.choose_inline_block:
+  path: '/layoutbuilder/choose/inline-block/{section_storage_type}/{section_storage}/{delta}/{region}'
+  defaults:
+    _controller: '\Drupal\layoutbuilder\Controller\ChooseBlockController::inlineBlockList'
+    _title: 'Add a new Inline Block'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.update_block:
+  path: '/layoutbuilder/update/block/{section_storage_type}/{section_storage}/{delta}/{region}/{uuid}'
+  defaults:
+    _form: '\Drupal\layoutbuilder\Form\UpdateBlockForm'
+    _title: 'Configure block'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.move_block_form:
+  path: '/layoutbuilder/move/block/{section_storage_type}/{section_storage}/{delta}/{region}/{uuid}'
+  defaults:
+    _title_callback: '\Drupal\layoutbuilder\Form\MoveBlockForm::title'
+    _form: '\Drupal\layoutbuilder\Form\MoveBlockForm'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.remove_block:
+  path: '/layoutbuilder/remove/block/{section_storage_type}/{section_storage}/{delta}/{region}/{uuid}'
+  defaults:
+    _form: '\Drupal\layoutbuilder\Form\RemoveBlockForm'
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.move_block:
+  path: '/layoutbuilder/move/block/{section_storage_type}/{section_storage}/{delta_from}/{delta_to}/{region_to}/{block_uuid}/{preceding_block_uuid}'
+  defaults:
+    _controller: '\Drupal\layoutbuilder\Controller\MoveBlockController::build'
+    delta_from: null
+    delta_to: null
+    region_from: null
+    region_to: null
+    block_uuid: null
+    preceding_block_uuid: null
+  requirements:
+    _layoutbuilder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layoutbuilder_tempstore: TRUE
+
+layoutbuilder.admin_settings:
+  path: '/admin/config/content/layoutbuilder'
+  defaults:
+    _form: '\Drupal\layoutbuilder\Form\LayoutBuilderSettingsForm'
+    _title: 'LayoutBuilder Settings Form'
+  requirements:
+    _permission: 'administer layoutbuilder'

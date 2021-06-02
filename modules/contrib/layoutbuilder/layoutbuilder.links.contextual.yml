@@ -1,0 +1,29 @@
+layoutbuilder_block_update:
+  title: 'Configure'
+  route_name: 'layoutbuilder.update_block'
+  group: 'layoutbuilder_block'
+  options:
+    attributes:
+      class: ['use-ajax']
+      data-dialog-type: dialog
+      data-dialog-renderer: off_canvas
+
+layoutbuilder_block_move:
+  title: 'Move'
+  route_name: 'layoutbuilder.move_block_form'
+  group: 'layoutbuilder_block'
+  options:
+    attributes:
+      class: ['use-ajax']
+      data-dialog-type: dialog
+      data-dialog-renderer: off_canvas
+
+layoutbuilder_block_remove:
+  title: 'Remove block'
+  route_name: 'layoutbuilder.remove_block'
+  group: 'layoutbuilder_block'
+  options:
+    attributes:
+      class: ['use-ajax']
+      data-dialog-type: dialog
+      data-dialog-renderer: off_canvas
